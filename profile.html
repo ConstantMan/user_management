@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+  crossorigin="anonymous"
+  />
+
+  <script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+  crossorigin="anonymous"
+  ></script>
+
+  <link rel="stylesheet" href="style/style.css">
+
+  <title>Document</title>
+</head>
+<body>
+      
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">User Page</a>
+    <button
+    class="navbar-toggler"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+    >
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+    class="collapse navbar-collapse justify-content-end"
+    id="navbarNavDropdown"
+    >
+    <ul class="navbar-nav" style="font-size: large;">
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="/index.html"
+          >Login</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/signup.html">Sign Up</a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="profile.html">Profile</a>
+      </li>
+    </div>
+  </div>
+  </nav>
+
+
+  <section style="background-color: #eee;">
+  <div class="container py-5">
+    <div class="row">
+    <div class="col-lg-4">
+      <div class="card mb-4">
+      <div class="card-body text-center">
+   <img src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" class="rounded-circle shadow-4"
+        style="width: 150px;" alt="Avatar" />      
+        <h5 class="my-3" id="Fullname card"></h5>
+      </div>
+      </div>
+    </div>
+    <div class="col-lg-8">
+      <div class="card mb-4">
+      <div class="card-body">
+        <div class="row">
+        <div class="col-sm-3">
+          <p class="mb-0">Firstname</p>
+        </div>
+        <div class="col-sm-9">
+          <p class="text-muted mb-0" id="Firstname Table"></p>
+        </div>
+        </div>
+        <hr>
+        <div class="row">
+        <div class="col-sm-3">
+          <p class="mb-0">Surname</p>
+        </div>
+        <div class="col-sm-9">
+          <p class="text-muted mb-0" id="Surname Table"></p>
+        </div>
+        </div>
+        <hr>
+        <div class="row">
+        <div class="col-sm-3">
+          <p class="mb-0">Username</p>
+        </div>
+        <div class="col-sm-9">
+          <p class="text-muted mb-0" id="Username Table"></p>
+        </div>
+        </div>
+        <hr>
+        <div class="row">
+        <div class="col-sm-3">
+          <p class="mb-0">Email</p>
+        </div>
+        <div class="col-sm-9">
+          <p class="text-muted mb-0" id="Email Table"></p>
+        </div>
+        </div>
+        <hr>
+        <div class="row">
+        <div class="col-sm-3">
+          <p class="mb-0">Phone</p>
+        </div>
+        <div class="col-sm-9">
+          <p class="text-muted mb-0" id="Phone Table"></p>
+        </div>
+        </div>
+        <hr>
+        <div class="row">
+        <div class="col-sm-3">
+          <p class="mb-0">Address</p>
+        </div>
+        <div class="col-sm-9">
+          <p class="text-muted mb-0" id="Address Table"></p>
+        </div>
+        </div>
+        <hr>
+        <div class="row">
+        <div class="col-sm-3">
+          <p class="mb-0">Gender</p>
+        </div>
+        <div class="col-sm-9">
+          <p class="text-muted mb-0" id="Gender Table"></p>
+        </div>
+        </div>
+        <hr>
+      </div>
+      </div>
+
+    </div>
+    </div>
+  </div>
+  </section>
+
+</body>
+
+
+<script>
+const cardFullname = document.getElementById("Fullname card");
+const tableFirstname = document.getElementById("Firstname Table");
+const tableSurname = document.getElementById("Surname Table");
+const tableUsername = document.getElementById("Username Table");
+const tableEmail = document.getElementById("Email Table");
+const tablePhone = document.getElementById("Phone Table");
+const tableAddress = document.getElementById("Address Table");
+const tableGender = document.getElementById("Gender Table");
+
+const url = "/users/user";
+
+fetch(url)
+  .then(response => {
+    // Χειρισμός απόκρισης
+    return response.json();
+  })
+  .then(data => {
+    // Χειρισμός δεδομένων
+    cardFullname.innerHTML = "" + data.firstname + " " + data.surname;
+    tableFirstname.innerHTML = "" + data.firstname;
+    tableSurname.innerHTML = "" + data.surname;
+    tableUsername.innerHTML = "" + data.username;
+    tableEmail.innerHTML = "" + data.email;
+    tablePhone.innerHTML = "" + data.phone;
+    tableAddress.innerHTML = "" + data.address;
+    tableGender.innerHTML = "" + data.gender;
+  })
+  .catch(error => {
+    // Χειρισμός σφάλματος
+  });
+  </script>
+
+</html>
+
