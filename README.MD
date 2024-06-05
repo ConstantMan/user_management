@@ -17,3 +17,4 @@ npm install nodemon
 npm start server
 ```
 
+And then import in phpmyadmin : 
