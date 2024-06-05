@@ -41,7 +41,7 @@ function saveChanges() {
     gender: genderInput.value,
   };
 
-  fetch("/update_user_info", {
+  fetch("/users/update_user_info", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
