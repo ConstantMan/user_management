@@ -17,4 +17,4 @@ npm install nodemon
 npm start server
 ```
 
-And then import in phpmyadmin : 
+And then import in phpmyadmin : application_db.sql
