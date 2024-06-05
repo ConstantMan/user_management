@@ -61,7 +61,6 @@ router.post("/update_user_info", requireLogin, jsonParser, async (req, res) => {
     res.status(500).send({ success: false, message: err.message });
   }
 });
-
 router.post("/signup", jsonParser, async (req, res) => {
   var user_id = uuidv4();
   var username = req.body.username;
@@ -73,6 +72,25 @@ router.post("/signup", jsonParser, async (req, res) => {
   var phone = req.body.phone;
   var address = req.body.address;
   var gender = req.body.gender;
+
+  // Check if all fields are complete
+  if (
+    !username ||
+    !user_password ||
+    !verify_password ||
+    !firstname ||
+    !surname ||
+    !email ||
+    !phone ||
+    !address ||
+    !gender
+  ) {
+    res.status(400).send({
+      message: "Please complete all fields",
+      signup: false,
+    });
+    return;
+  }
 
   if (user_password !== verify_password) {
     res.status(400).send({
