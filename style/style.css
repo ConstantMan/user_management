@@ -141,7 +141,7 @@
 #registerForm{
   display: flex;
   width: 40%;
-  height: 550px;
+  height: 700px;
   margin-top: 1%;
   background-color:#5e4caf;;
   
@@ -152,6 +152,8 @@
   border:#5e4caf;
   box-shadow: 5px 5px 5px ,0 6px 20px 0;
   gap: 30px;
+  border-radius: 2rem;
+
  
 
 }
@@ -217,10 +219,11 @@
 
 #registerForm button{ 
   height: 50px;
-  width: 100%;
-  background-color:#5e4caf;
-  border: 2px solid#5e4caf;
-  margin-bottom: 0px;
+  width: 50%;
+  background-color:#6e5cbd;
+  border: 4px solid#523fa7;
+  margin-bottom: 10px;
+  border-radius: 2rem;
   color: whitesmoke;
   transition: 0.30s;
 }
@@ -232,8 +235,8 @@
 
 #registerForm button:hover{
   
-   background-color: #277af7 ;
-   border: 2px solid #277af7;
+   background-color: #570072 ;
+   border: 2px solid #570072;
 }
 
 #registerForm input:focus{
